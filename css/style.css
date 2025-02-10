@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-/* @import url('https://fonts.cdnfonts.com/css/heart-breaking-bad'); */
 @font-face {
     font-family: 'Heart Breaking Bad';
     font-style: normal;
@@ -13,7 +12,7 @@
 * {
     user-select: none;
     -webkit-tap-highlight-color: transparent;
-    cursor: url(../img/mouse-cursor.svg), auto;
+    cursor: url(../img/cursor-64.png), auto;
 }
 
 html {
@@ -25,8 +24,8 @@ html {
     flex-direction: column;
     min-height: 100dvh;
     background-color: #016434;
-    background-image: url(../img/crystals-icon.png), linear-gradient(180deg, #016434, #016434);
-    background-size: 10vw;
+    background-image: url(../img/money-icon2.png);
+    background-size: 30vw;
     background-repeat: round;
     background-blend-mode: overlay;
 }
@@ -36,8 +35,8 @@ html {
     flex-direction: column;
     justify-content: center;
     flex: 1 0 auto;
-    margin: 10%  auto 0;
-    width: 90%;
+    margin: 5vw  auto 0;
+    width: 80%;
 }
 
 .calculator {
@@ -45,14 +44,15 @@ html {
     padding: 8vw;
     background-color: #232728; /* 0D3E10 */
     border-radius: 5vw;
-    /* box-shadow: 1vw 1vw 2vw rgba(0, 0, 0, .8); */
-    box-shadow: 1vw 1vw 0 rgb(22, 25, 26);
+    box-shadow: 1.5vw 1.5vw 0 rgb(22, 25, 26);
 }
 
 .calculator .top {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+
+
+    flex-wrap: wrap;
 }
 
 .top .brand {
@@ -61,18 +61,17 @@ html {
 
 .brand .title {
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
     margin: 0;
     font-family: 'Heart Breaking Bad', sans-serif;
-    font-size: 9vw;
+    font-size: 7.5vw;
     color: #ffffff;
     text-shadow: .1em .1em 0 rgba(0, 0, 0, .3);
 }
 
 .brand .title .icon {
     width: 1.25em;
-    filter: drop-shadow(1vw 1vw 0 rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(.05em .05em 0 rgba(0, 0, 0, 0.3));
 }
 
 .brand .model {
@@ -85,10 +84,8 @@ html {
 
 .top .solar-cells {
     display: flex;
-    flex: 0 0 60%;
-    aspect-ratio: 2/1;
+    flex: 0 0 50%;
     border-radius: 3vw;
-    /* background-color: #794000; */
     background: linear-gradient(0deg, #794000, #4b2800);
     box-shadow: 1vw 1vw 0 rgb(22, 25, 26);
 }
@@ -108,8 +105,8 @@ html {
     border-bottom-right-radius: 3vw;
 }
 
-.calculator .screen {
-    /* aspect-ratio: 3/1; */
+.top .screen {
+    flex: 1 0 auto;
     margin: 8vw 0;
     padding: 6vw;
     background-color: #cfe2e6;
@@ -149,22 +146,21 @@ html {
     aspect-ratio: 1/1;
     margin: 2%;
     padding: 0;
-    border-radius: 50%;
     border: none;
     background-color: #369457;
     color: #ffffff;
-    font-size: 9vw;;
+    font-size: 9vw;
     box-shadow: inset .1em .1em .1em rgba(0, 0, 0, 0.4);
+    border-radius: .25em;
 }
 
-.calculator button:hover {
-    scale: 1.10;
-    /* cursor: pointer; */
+.calculator button:active {
+    scale: .9;
 }
 
 #backspace,
 #sign {
-    font-size: 7vw;
+    font-size: 8vw;
 }
 
 #clear,
@@ -223,7 +219,6 @@ footer a {
 
 .github-profile {
     width: 10vw;
-    /* flex: 0 0 10vw; */
     border-radius: 50%;
 }
 
@@ -231,7 +226,106 @@ img {
     -webkit-user-drag: none;
 }
 
-/* Media queries - Landscape mode*/
-@media screen and (min-aspect-ratio: 1/1) {
 
+
+/* Media queries - "Landscape" mode*/
+@media screen and (min-aspect-ratio: 1/1) {
+    .global-container {
+        background-size: 25vw;
+    }
+
+    .main-container {
+        margin: 2.5vw auto 0;
+    }
+
+    .calculator {
+        margin: 0 0 4vw 0;
+        padding: 4vw;
+        border-radius: 3vw;
+        box-shadow: 1vw .75vw 0 rgb(22, 25, 26);
+    }
+
+    .calculator .top {
+        gap: 1.5vw;
+    }
+
+    .top .brand {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .top .solar-cells {
+        flex: 0 0 25%;
+        border-radius: 1.5vw;
+        box-shadow: .5vw .5vw 0 rgb(22, 25, 26);
+    }
+
+    .brand .title {
+        font-size: 4vw;
+    }
+
+    .brand .model {
+        font-size: 1.5vw;
+    }
+
+    .solar-cells .cell {
+        border-width: .5vw;
+    }
+
+    .solar-cells .cell:first-child {
+        border-top-left-radius: 1.5vw;
+        border-bottom-left-radius: 1.5vw;
+    }
+    
+    .solar-cells .cell:last-child {
+        border-top-right-radius: 1.5vw;
+        border-bottom-right-radius: 1.5vw;
+    }
+
+    .top .screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin: 0;
+        padding: 1.5vw 2vw;
+        border-radius: 2vw;
+        font-size: 8vw;
+        box-shadow: inset 0vw 0vw 6vw rgba(0, 0, 0, .8);
+    }
+
+    .screen .operation-text {
+        font-size: .25em;
+    }
+
+    .screen .result-text {
+        font-size: .5em;
+    }
+
+    .calculator .buttons-container {
+        margin-top: 2.5vw;
+    }
+
+    .calculator button {
+        aspect-ratio: unset;
+        margin: 1%;
+        font-size: 4vw;
+    }
+
+    #backspace, 
+    #sign {
+        font-size: 3vw;
+    }
+
+    #equals img {
+        width: 4vw;
+    }
+
+    footer {
+        font-size: 3vw;
+    }
+
+    .github-profile {
+        width: 5vw;
+    }
 }
