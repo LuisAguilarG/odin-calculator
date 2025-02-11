@@ -42,17 +42,15 @@ html {
 .calculator {
     margin: 0 0 8vw 0;
     padding: 8vw;
-    background-color: #232728; /* 0D3E10 */
+    background-color: #232728;
     border-radius: 5vw;
     box-shadow: 1.5vw 1.5vw 0 rgb(22, 25, 26);
 }
 
 .calculator .top {
     display: flex;
-    justify-content: space-between;
-
-
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .top .brand {
@@ -111,7 +109,7 @@ html {
     padding: 6vw;
     background-color: #cfe2e6;
     border-radius: 5vw;
-    font-size: 10vw;
+    font-size: 7vw;
     user-select: text;
     box-shadow: inset 0vw 0vw 15vw rgba(0, 0, 0, .8);
 }
@@ -240,7 +238,7 @@ img {
 
     .calculator {
         margin: 0 0 4vw 0;
-        padding: 4vw;
+        padding: 4vw 4vw 2vw 4vw;
         border-radius: 3vw;
         box-shadow: 1vw .75vw 0 rgb(22, 25, 26);
     }
@@ -262,11 +260,11 @@ img {
     }
 
     .brand .title {
-        font-size: 4vw;
+        font-size: 3vw;
     }
 
     .brand .model {
-        font-size: 1.5vw;
+        font-size: 1.25vw;
     }
 
     .solar-cells .cell {
@@ -290,7 +288,7 @@ img {
         margin: 0;
         padding: 1.5vw 2vw;
         border-radius: 2vw;
-        font-size: 8vw;
+        font-size: 6vw;
         box-shadow: inset 0vw 0vw 6vw rgba(0, 0, 0, .8);
     }
 
@@ -309,7 +307,7 @@ img {
     .calculator button {
         aspect-ratio: unset;
         margin: 1%;
-        font-size: 4vw;
+        font-size: 3.5vw;
     }
 
     #backspace, 
@@ -318,7 +316,7 @@ img {
     }
 
     #equals img {
-        width: 4vw;
+        width: 3.5vw;
     }
 
     footer {
@@ -329,3 +327,4 @@ img {
         width: 5vw;
     }
 }
+
