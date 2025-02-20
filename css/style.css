@@ -12,7 +12,7 @@
 * {
     user-select: none;
     -webkit-tap-highlight-color: transparent;
-    cursor: url(../img/cursor-64.png), auto;
+    cursor: url(../img/cursor-32.png), auto;
 }
 
 html {
@@ -117,10 +117,11 @@ html {
 .screen .operation-text {
     font-size: .5em;
     color: rgba(35, 39, 40, .75);
+    opacity: 0;
 }
 
 .screen .result-text {
-    font-size: 1em;
+    font-size: .8em;
     color: rgba(1, 100, 52, 1);
     font-weight: bolder;
 }
@@ -150,39 +151,48 @@ html {
     font-size: 9vw;
     box-shadow: inset .1em .1em .1em rgba(0, 0, 0, 0.4);
     border-radius: .25em;
+    outline: none;
+    transition: scale 0.05s, filter 0.05s; /* transition: 0.05s all; */
+    filter: brightness(100%);
 }
 
-.calculator button:active {
+.calculator button:active { /* Click by the user */
     scale: .9;
+    filter: brightness(80%);
 }
 
-#backspace,
-#sign {
+.calculator button.active { /* Key pressed by the user */
+    scale: .9;
+    filter: brightness(80%);
+}
+
+#b-backspace,
+#b-sign {
     font-size: 8vw;
 }
 
-#clear,
-#clear-entry,
-#backspace {
+#b-clear-entry,
+#b-clear,
+#b-backspace {
     background-color: #d15151;
     font-weight: bold;
 }
 
-#division, 
-#multiplication, 
-#subtraction, 
-#addition,
-#sign,
-#decimal {
+#b-divide, 
+#b-multiply, 
+#b-subtract, 
+#b-add,
+#b-sign,
+#b-decimal-point {
     background-color: #e7ae31;
     font-weight: bold;
 }
 
-#equals {
+#b-equals {
     background-color: #ffffff;
 }
 
-#equals img {
+#b-equals img {
     width: 70%;
     filter: drop-shadow(.25vw .25vw .5vw rgba(0, 0, 0, .5));
 }
@@ -224,7 +234,10 @@ img {
     -webkit-user-drag: none;
 }
 
-
+@keyframes selected-button {
+    from {filter: saturate(100%)}
+    to {filter: brightness(20%);}
+  }
 
 /* Media queries - "Landscape" mode*/
 @media screen and (min-aspect-ratio: 1/1) {
@@ -310,12 +323,12 @@ img {
         font-size: 3.5vw;
     }
 
-    #backspace, 
-    #sign {
+    #b-backspace, 
+    #b-sign {
         font-size: 3vw;
     }
 
-    #equals img {
+    #b-equals img {
         width: 3.5vw;
     }
 
@@ -327,4 +340,5 @@ img {
         width: 5vw;
     }
 }
+
 
