@@ -266,16 +266,12 @@ function operate(operator, operand1, operand2) {
     switch(operator) {
         case "add": 
             return operand1 + operand2;
-            break;
         case "subtract":
             return operand1 - operand2;
-            break;
         case "multiply":
             return operand1 * operand2;
-            break;
         case "divide":
             return operand2 == "0" ? "That's not very scientific" : operand1 / operand2;
-            break;
         default:
             break;
     }
