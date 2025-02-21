@@ -18,7 +18,6 @@ initializeApp();
 function initializeApp() {
     setKeyEventListeners();
     setButtonEventListeners();
-    setDeviceOrientationListener();
     clearTempOperand();
 }
 
@@ -39,17 +38,12 @@ function setKeyEventListeners() {
 
         animateButton(buttonElement);
 
-        if (isOperator) {
-            applyOperator(pressedKeyId);
-        } else if (pressedKeyId == "clear-entry") {
-            clearTempOperand();
-        } else if (pressedKeyId == "backspace") {
-            sliceTempOperand();
-        } else if (pressedKeyId == "decimal-point") {
-            appendDecimalPoint();
-        } else if (pressedKeyId == "equals") {
-            checkEquals();
-        } else if (pressedKeyId >= 0 && pressedKeyId <= 9) {
+        if (isOperator) applyOperator(pressedKeyId);
+        else if (pressedKeyId == "clear-entry") clearTempOperand();
+        else if (pressedKeyId == "backspace") sliceTempOperand();
+        else if (pressedKeyId == "decimal-point") appendDecimalPoint();
+        else if (pressedKeyId == "equals")checkEquals();
+        else if (pressedKeyId >= 0 && pressedKeyId <= 9) {
             userInput = true;
             appendTempOperand(pressedKeyId);
         }
@@ -64,32 +58,18 @@ function setButtonEventListeners() {
         const buttonValue = button.id.slice(2); // Remove the prefix "b-" of each id
         const isOperator = buttonValue === "add" || buttonValue === "subtract" || buttonValue === "multiply" || buttonValue === "divide";
 
-        if (isOperator) {
-            button.addEventListener("mousedown", () => applyOperator(buttonValue));
-        } else if (buttonValue === "clear-entry") {
-            button.addEventListener("mousedown", () => clearTempOperand());
-        } else if (buttonValue === "clear") {
-            button.addEventListener("mousedown", () => clearAll());
-        } else if (buttonValue === "backspace") {
-            button.addEventListener("mousedown", () => sliceTempOperand());
-        } else if (buttonValue === "sign") {
-            button.addEventListener("mousedown", () => changeSign());
-        } else if (buttonValue === "decimal-point") {
-            button.addEventListener("mousedown", () => appendDecimalPoint());
-        } else if (buttonValue === "equals") {
-            button.addEventListener("mousedown", () => checkEquals());
-        } else if (buttonValue >= 0 && buttonValue <= 9) {
-            button.addEventListener("mousedown", () => {
+        if (isOperator) button.addEventListener("mousedown", () => applyOperator(buttonValue));
+        else if (buttonValue === "clear-entry") button.addEventListener("mousedown", () => clearTempOperand());
+        else if (buttonValue === "clear") button.addEventListener("mousedown", () => clearAll());
+        else if (buttonValue === "backspace") button.addEventListener("mousedown", () => sliceTempOperand());
+        else if (buttonValue === "sign") button.addEventListener("mousedown", () => changeSign());
+        else if (buttonValue === "decimal-point") button.addEventListener("mousedown", () => appendDecimalPoint());
+        else if (buttonValue === "equals") button.addEventListener("mousedown", () => checkEquals());
+        else if (buttonValue >= 0 && buttonValue <= 9) button.addEventListener("mousedown", () => {
                 userInput = true;
                 appendTempOperand(buttonValue);
-            });
-        }
+        });
     });
-}
-
-
-function setDeviceOrientationListener() {
-    
 }
 
 
